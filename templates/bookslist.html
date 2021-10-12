@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}BOOKS LIST{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <table class="table table-bordered">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Published Date</th>
+        </tr>
+        <tbody>
+        {% for books in books %}
+        <tr scope="row">
+            <td>{{ books['volumeInfo']['title'] }}</td>
+            {% for author in books['volumeInfo']['authors']%}
+            <td>{{ author }}</td>
+            {% endfor %}
+            <td>{{ books['volumeInfo']['publishedDate'] }}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
