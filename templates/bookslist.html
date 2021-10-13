@@ -19,6 +19,9 @@
             <td>{{ author }}</td>
             {% endfor %}
             <td>{{ books['volumeInfo']['publishedDate'] }}</td>
+            <td>
+                <a href="/book-details?book_id={{ books['id'] }}">Details</a>
+            </td>
         </tr>
         </tbody>
         {% endfor %}
