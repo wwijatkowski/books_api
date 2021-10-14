@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}BOOKS DETAILS{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <table class="table table-bordered">
+        <tr>
+            <th scope="col">Title</th>
+            <td>{{ book['volumeInfo']['title'] }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Author</th>
+            {% for author in book['volumeInfo']['authors']%}
+            <td>{{ author }}</td>
+            {% endfor %}
+        <tr/>
+        <tr>
+            <th scope="col">Published Date</th>
+            <td>{{ book['volumeInfo']['publishedDate'] }}</td>
+        <tr/>
+        <tr>
+            <th scope="col">Categories</th>
+            {% for category in book['volumeInfo']['categories']%}
+            <td>{{ category }}</td>
+            {% endfor %}
+        <tr/>
+        <tr>
+            <th scope="col">Average Rating</th>
+            <td>{{ book['volumeInfo']['averageRating'] }}</td>
+        <tr/>
+        <tr>
+            <th scope="col">Ratings Count</th>
+            <td>{{ book['volumeInfo']['ratingsCount'] }}</td>
+        <tr/>
+        <tr>
+            <th scope="col">Thumbnail</th>
+            <td><img src="{{ thumbnail }}"></td>
+        </tr>
+
+    </table>
+</div>
+
+{% endblock %}

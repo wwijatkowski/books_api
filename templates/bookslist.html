@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}BOOKS LIST{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <table class="table table-bordered">
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Published Date
+                <a href="/book-list-sort?sort_type=ascending">Sort ascending↑</a>
+                <a href="/book-list-sort?sort_type=descending">Sort descending↓</a>
+            </th>
+        </tr>
+        <h3>To filter please click on chosen item. </h3>
+        <tbody>
+        {% for book in all %}
+        <tr scope="row">
+            <td>{{ book.id}}</td>
+            <td><a href="/filter-by-title?data={{ book.title }}">{{ book.title }}</a></td>
+            <td><a href="/filter-by-authors?data={{ book.authors }}">{{ book.authors }}</a></td>
+            <td>
+                <a href="/filter-by-published_date?data={{ book.published_date }}">{{ book.published_date }}</a>
+            </td>
+            <td>
+                <a href="/book-details?book_id={{ book.book_id }}">Details</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
